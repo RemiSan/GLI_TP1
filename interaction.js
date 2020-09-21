@@ -18,8 +18,8 @@ function DnD(canvas) {
     this.pressed = false;
   }.bind(this);
   this.mouseMove = function (evt) {
-    console.log('mouseMove');
     if (this.pressed) {
+      console.log('mouseMove');
       this.posEnd = getMousePosition(canvas, evt);
     }
   }.bind(this);
