@@ -4,6 +4,14 @@
 
 function Drawing() {
     this.formes = new Array();
+
+    this.addForme = function (forme) {
+        this.formes.push(forme);
+    }.bind(this);
+
+    this.getForms = function(){
+        return this.formes;
+    }
 }
 
 function Forme(color, thickness) {
@@ -17,19 +25,19 @@ function Rectangle(color, thickness, coorBeg, width, height) {
     this.width = width;
     this.height = height;
 
-    this.getInitX = function (evt) {
+    this.getInitX = function () {
         return this.coorBeg.x;
     }.bind(this);
 
-    this.getInitY = function (evt) {
+    this.getInitY = function () {
         return this.coorBeg.y;
     }.bind(this);
 
-    this.getFinalX = function (evt) {
+    this.getFinalX = function () {
         return this.coorBeg.x + this.width;
     }.bind(this);
     
-    this.getFinalY = function (evt) {
+    this.getFinalY = function () {
         return this.coorBeg.y + this.height;
     }.bind(this);
 };
@@ -39,19 +47,19 @@ function Line(color, thickness, coorBeg, coorEnd) {
     this.coorBeg = coorBeg;
     this.coorEnd = coorEnd;
 
-    this.getInitX = function (evt) {
+    this.getInitX = function () {
         return this.coorBeg.x;
     }.bind(this);
 
-    this.getInitY = function (evt) {
+    this.getInitY = function () {
         return this.coorBeg.y;
     }.bind(this);
 
-    this.getFinalX = function (evt) {
+    this.getFinalX = function () {
         return this.coorEnd.x;
     }.bind(this);
     
-    this.getFinalY = function (evt) {
+    this.getFinalY = function () {
         return this.coorEnd.y;
     }.bind(this);
 };
