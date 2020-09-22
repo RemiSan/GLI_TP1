@@ -44,37 +44,9 @@ Forme.prototype.update = function (coorEnd) {
 function Rectangle(color, thickness, coorBeg, coorEnd) {
     Forme.call(this, color, thickness, coorBeg, coorEnd);
 };
-Rectangle.prototype.getInitX = function () {
-    Forme.prototype.getInitX.call(this);
-}
-Rectangle.prototype.getInitY = function () {
-    Forme.prototype.getInitY.call(this);
-}
-Rectangle.prototype.getFinalX = function () {
-    Forme.prototype.getFinalX.call(this);
-}
-Rectangle.prototype.getFinalY = function () {
-    Forme.prototype.getFinalY.call(this);
-}
+Rectangle.prototype = new Forme();
 
 function Line(color, thickness, coorBeg, coorEnd) {
     Forme.call(this, color, thickness, coorBeg, coorEnd);
 };
-Line.prototype.update = function (coorEnd) {
-    Forme.prototype.update.call(this, coorEnd);
-}
-Rectangle.prototype.update = function (coorEnd) {
-    Forme.prototype.update.call(this, coorEnd);
-}
-Line.prototype.getInitX = function () {
-    Forme.prototype.getInitX.call(this);
-}
-Line.prototype.getInitY = function () {
-    Forme.prototype.getInitY.call(this);
-}
-Line.prototype.getFinalX = function () {
-    Forme.prototype.getFinalX.call(this);
-}
-Line.prototype.getFinalY = function () {
-    Forme.prototype.getFinalY.call(this);
-}
+Line.prototype = new Forme();
