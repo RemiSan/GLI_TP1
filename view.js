@@ -27,7 +27,6 @@ Line.prototype.paint = function (ctx) {
 };
 
 Drawing.prototype.paint = function (ctx) {
-    console.log('tentreiognerio');
     ctx.fillStyle = '#F0F0F0'; // set canvas' background color
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     this.getForms().forEach(function (eltDuTableau) {
@@ -35,3 +34,8 @@ Drawing.prototype.paint = function (ctx) {
         eltDuTableau.paint(ctx);
     });
 };
+
+
+function updateShapeList() {
+    //TODO
+}
