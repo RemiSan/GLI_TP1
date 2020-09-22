@@ -10,6 +10,7 @@ function DnD(canvas, interactor) {
   this.mouseDown = function (evt) {
     console.log('mouseDown');
     this.posBeg = getMousePosition(canvas, evt);
+    this.posEnd = getMousePosition(canvas, evt);
     this.pressed = true;
     interactor.onInteractionStart(this);
   }.bind(this);

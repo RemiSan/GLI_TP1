@@ -2,7 +2,7 @@
 var editingMode = { rect: 0, line: 1 };
 
 function Pencil(ctx, drawing, canvas) {
-	this.currEditingMode = editingMode.line;
+	this.currEditingMode = editingMode.rect;
 	this.currLineWidth = 5;
 	this.currColour = '#000000';
 	this.currentShape = 0;
@@ -14,14 +14,19 @@ function Pencil(ctx, drawing, canvas) {
 
 	// Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 	this.onInteractionStart = function (dnd) {
-		drawing.addForme(new Rectangle(this.currColour, this.currLineWidth, dnd.posBeg, 50, 100))
+		if (this.currEditingMode === editingMode.rect) {
+			this.currentShape = new Rectangle(this.currColour, this.currLineWidth, dnd.posBeg, dnd.posBeg);
+		}else if (this.currEditingMode === editingMode.line){
+			this.currentShape = new Line(this.currColour, this.currLineWidth, dnd.posBeg, dnd.posBeg);
+		}
 	}.bind(this);
 
 	this.onInteractionUpdate = function (dnd) {
-		//drawing.addForme(new Rectangle(this.currColour, this.currLineWidth, dnd.posBeg))
+		this.currentShape.update(dnd.posEnd);
 	}.bind(this);
 
 	this.onInteractionEnd = function (dnd) {
+		drawing.addForme(this.currentShape);
 		drawing.paint(ctx);
 	}.bind(this);
 };
